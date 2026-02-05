@@ -1,7 +1,7 @@
-/* intro 영역 */
+/* --- Intro 영역 --- */
 .intro {
-    border-bottom: 1px solid #000;
     height: 100vh;
+    border-bottom: 1px solid #000;
     overflow: hidden;
 }
 
@@ -13,29 +13,32 @@
     filter: brightness(1);
 }
 
+/* 하단 SVG 컨테이너 */
 .svg-container {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    padding: 0 30px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 0 30px;
+}
 
-    position: absolute;
-    width: 100%;
-    bottom: 30px;
+/* 인트로 로고 및 심볼 공통 */
+.intro-logo__svg,
+.intro-corp__svg {
+    fill: #fff;
 }
 
 .intro-logo__svg {
     width: 85vw;
-    fill: #fff;
 }
 
 .intro-corp__svg {
     width: 4vw;
-    fill: #fff;
 }
 
-/* intro fin */
-
+/* --- Sect Scroll 1 --- */
 .sect-scroll-1 {
     position: relative;
     height: 500vh;
@@ -48,11 +51,15 @@
     border-bottom: 1px solid #000;
 }
 
-.col-left {
+/* 좌우 컬럼 레이아웃 공통 */
+.col-left,
+.col-right {
     width: 50%;
     height: 100%;
     background-color: #fff;
+}
 
+.col-left {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,9 +74,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 50%;
-    height: 100%;
-    background-color: #fff;
     border-left: 1px solid #000;
 }
 
@@ -79,17 +83,15 @@
     object-fit: cover;
 }
 
-/* ? text 부분 */
-.sect-scroll-1 .wrap1 {
+/* 텍스트 컨텐츠 공통 */
+.sect-scroll-1 .wrap1,
+.sect-scroll-1 .wrap2,
+.sect-scroll-1 .wrap3 {
     position: absolute;
-    left: 50%;
-    top: 16%;
-    transform: translateX(-50%);
-
     text-align: center;
-    font-size: 16px;
 }
 
+/* 텍스트 노출 애니메이션 준비 */
 .sect-scroll-1 .contents-text-1,
 .sect-scroll-1 .contents-text-2,
 .sect-scroll-1 .contents-text-3 {
@@ -101,14 +103,19 @@
     transform: translateY(100%);
 }
 
+/* 개별 Wrap 위치 설정 */
+.sect-scroll-1 .wrap1 {
+    left: 50%;
+    top: 16%;
+    transform: translateX(-50%);
+    font-size: 16px;
+}
+
 .sect-scroll-1 .wrap2,
 .sect-scroll-1 .wrap3 {
-    position: absolute;
     top: 50%;
     transform: translateY(-40%);
     width: 35vw;
-
-    text-align: center;
     font-size: 5vw;
     line-height: 1;
 }
@@ -122,6 +129,7 @@
     left: auto;
 }
 
+/* 특수 텍스트 크기 및 하단 정보 */
 .sect-scroll-1 .wrap3 .contents-text-3:last-child {
     font-size: 3vw;
 }
@@ -131,19 +139,18 @@
     right: 30px;
     bottom: 30px;
     width: 20vw;
-
     font-size: 12px;
     text-align: right;
     opacity: 0;
 }
 
-/* sect-scroll-1 fin */
-
+/* --- Impact Area 1 --- */
 .impact-area-1 {
     position: relative;
     border-bottom: 1px solid #000;
 }
 
+/* 이미지 영역 */
 .impact-area-1 .img-wrap {
     width: 50%;
     height: 100%;
@@ -155,6 +162,7 @@
     object-fit: cover;
 }
 
+/* 우측 텍스트 컨텐츠 영역 */
 .impact-area-1 .wrap {
     position: absolute;
     top: 0;
@@ -165,6 +173,7 @@
     border-left: 1px solid #000;
 }
 
+/* 타이틀 스타일 */
 .impact-area1__title {
     font-size: 3.5vw;
     font-weight: 400;
@@ -172,9 +181,7 @@
     padding: 200px 0 300px 0;
 }
 
-/* impact-area-1 fin */
-
-/* ? video */
+/* --- Sect Scroll 2 (Video & Caption) --- */
 .sect-scroll-2 {
     position: relative;
     height: 500vh;
@@ -194,15 +201,15 @@
     object-fit: cover;
 }
 
-/* ? videa-caption */
+/* 비디오 캡션 공통 설정 */
 .sect-scroll-2 .component {
     position: absolute;
-
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
+/* 개별 캡션 위치 (수치 유지) */
 .sect-scroll-2 .component.cap {
     top: 10%;
     right: 18%;
@@ -218,24 +225,22 @@
     right: 5%;
 }
 
+/* 캡션 내부 요소 */
 .sect-scroll-2 .component-line {
     display: inline-block;
-    width: 8vw;
+    width: 0;
     height: 1px;
     background-color: #000;
+}
+
+/* 텍스트 및 애니메이션 준비 */
+.sect-scroll-2 .component .wrap {
+    overflow: hidden;
 }
 
 .sect-scroll-2 .component-title {
     margin-bottom: 5px;
     font-weight: 600;
-}
-
-.sect-scroll-2 .component .wrap {
-    overflow: hidden;
-}
-
-.sect-scroll-2 .component .component-line {
-    width: 0;
 }
 
 .sect-scroll-2 .component-desc span {
@@ -244,6 +249,7 @@
     transform: translateY(100%);
 }
 
+/* 우측 하단 배지 */
 .sect-scroll-2 .badge-wrap {
     position: absolute;
     right: 20px;
@@ -257,20 +263,19 @@
     opacity: 0;
 }
 
-/* sect-scroll-2 fin */
-
+/* --- Impact Area 2 --- */
 .impact-area-2 {
     position: relative;
-    border-bottom: 1px solid #000;
     height: 1300px;
+    border-bottom: 1px solid #000;
 }
 
+/* 좌측 텍스트 영역 */
 .impact-area-2 .left {
     width: 50%;
     height: 100%;
     background-color: #fff;
     padding: 0 100px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -282,10 +287,11 @@
     line-height: 1.3;
 }
 
+/* 우측 이미지 영역 */
 .impact-area-2 .right {
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     width: 50%;
     height: 100%;
     border-left: 1px solid #000;
@@ -297,8 +303,8 @@
     object-fit: cover;
 }
 
-/* impact-area-2 fin */
 
+/* --- Sect Scroll 3 (Video & Caption) --- */
 .sect-scroll-3 {
     position: relative;
     height: 500vh;
@@ -318,7 +324,7 @@
     object-fit: cover;
 }
 
-/* ? viedo */
+/* 비디오 캡션 영역 */
 .sect-scroll-3 .component {
     position: absolute;
     top: 12%;
@@ -332,55 +338,55 @@
     right: 5.5vw;
 }
 
+/* 텍스트 애니메이션 준비 */
 .sect-scroll-3 .component .wrap {
     overflow: hidden;
 }
 
 .sect-scroll-3 .component span {
-    transform: translateY(100%);
     display: block;
     line-height: 1.5;
+    transform: translateY(100%);
 }
 
-/* sect-scroll-3 fin */
-
+/* --- Product Gallery --- */
 .gallery-title {
     width: 70vw;
     padding: 80px 0 80px 20px;
     font-size: 5vw;
-    letter-spacing: -1px;
     line-height: 1;
+    letter-spacing: -1px;
 }
 
 .gallery-list {
-    border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
-
     display: flex;
     justify-content: space-between;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
 
 .gallery-item {
     flex: 1;
 }
 
+/* 아이템 사이 경계선 */
 .gallery-item:not(:first-child) {
     border-left: 1px solid #000;
 }
 
 .gallery-item img {
     width: 100%;
-    object-fit: cover;
     aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-/* product-gallery fin */
-
+/* --- CTA Block --- */
 .cta-block {
     display: flex;
     border-bottom: 1px solid #000;
 }
 
+/* 좌측 영역 */
 .cta-left {
     flex: 1;
     display: flex;
@@ -392,6 +398,7 @@
     padding: 0 20px;
 }
 
+/* 우측 영역 */
 .cta-right {
     flex: 1;
     border-left: 1px solid #000;
@@ -410,6 +417,7 @@
     margin-bottom: 10px;
 }
 
+/* 링크 텍스트 및 하단 라인 애니메이션 */
 .cta-right .cta-linkText {
     font-weight: 400;
     position: relative;
@@ -420,25 +428,22 @@
 .cta-right .cta-linkText:after {
     content: "";
     position: absolute;
-
     bottom: 0;
     left: 0;
-
-    height: 1px;
     width: 100%;
+    height: 1px;
     background-color: #1a1a1a;
-
+    transform-origin: left;
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
     transform: scaleX(1);
-    transform-origin: left;
 }
 
+/* 호버 효과 (수치 유지) */
 .cta-right .cta-list:hover .cta-linkText:after {
     transform: scaleX(0);
 }
 
-/* cta-block fin */
-
+/* --- Product List --- */
 .product-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -447,9 +452,9 @@
 }
 
 .product-item {
+    background-color: #f0f1ef;
     border-bottom: 1px solid #000;
     overflow: hidden;
-    background-color: #f0f1ef;
 }
 
 .product-link {
@@ -457,11 +462,11 @@
     padding: 20px;
 }
 
+/* 상품 이미지 컨테이너 */
 .product-wrap {
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -473,6 +478,11 @@
     width: 100%;
 }
 
+/* 이미지 호버 효과 (수치 유지) */
+.product-img.hover {
+    opacity: 0;
+}
+
 .product-item:hover .product-img.hover {
     opacity: 1;
 }
@@ -481,46 +491,55 @@
     opacity: 0;
 }
 
-.product-img.hover {
-    opacity: 0;
-}
-
+/* 상품 설명 및 가격 정보 */
 .product-desc {
     display: flex;
     justify-content: space-between;
-    font-weight: 500;
     font-size: 14px;
-}
-
-.product-item:hover .product-price {
-    transform: translateY(0%);
+    font-weight: 500;
 }
 
 .product-price {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     position: absolute;
-
-    background-color: #fff;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 80px;
     padding: 20px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
     border-top: 1px solid;
     text-align: center;
     font-weight: 500;
-
+    z-index: 1;
     transform: translateY(100%);
     transition: transform ease 0.4s;
-    z-index: 1;
 }
 
-/* product-lineup fin */
+/* 가격표 노출 애니메이션 */
+.product-item:hover .product-price {
+    transform: translateY(0%);
+}
+
 @media (max-width: 1024px) {
+    #main>.wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sect-scroll-2 {
+        order: 1;
+        position: relative;
+        height: auto;
+    }
+
+    .impact-area-1 {
+        order: 2;
+    }
+
+    /* --- Sect Scroll 1 --- */
     .sect-scroll-1 {
         position: relative;
         height: 100%;
@@ -535,9 +554,7 @@
     .col-left {
         width: 100%;
         height: auto;
-
         display: block;
-        /* border: 1px solid #000; */
     }
 
     .col-left h2 {
@@ -556,16 +573,16 @@
         flex-wrap: wrap;
     }
 
+    /* Sect 1 텍스트 요소 */
     .sect-scroll-1 .wrap1 {
         position: static;
         width: 100%;
         transform: translateX(0);
         text-align: center;
         font-size: 16px;
-
+        padding: 40px 16px;
         border-top: 1px solid #000;
         border-bottom: 1px solid #000;
-        padding: 40px 16px;
     }
 
     .sect-scroll-1 .contents-text-1,
@@ -585,27 +602,19 @@
         position: static;
         width: 50%;
         transform: translateY(0);
-
-        display: inline;
-        text-align: center;
-        font-size: 3vw;
-        line-height: 1;
-        padding: 40px 16px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        text-align: center;
+        font-size: 3vw;
+        line-height: 1;
+        padding: 40px 16px;
         border-bottom: 1px solid #000;
     }
 
     .sect-scroll-1 .wrap2 {
-        left: 0;
         border-right: 1px solid #000;
-    }
-
-    .sect-scroll-1 .wrap3 {
-        right: 0;
-        left: auto;
     }
 
     .sect-scroll-1 .wrap3 .contents-text-3:last-child {
@@ -615,72 +624,46 @@
     .sect-scroll-1 .contents-text-4 {
         position: static;
         width: 100%;
-
         font-size: 12px;
         text-align: left;
         opacity: 1;
         padding: 40px 16px;
     }
 
-    #main>.wrap {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .sect-scroll-2 {
-        height: auto;
-        order: 1;
-    }
-
-    .impact-area-1 {
-        order: 2;
-    }
-
-    .sect-scroll-2 {
-        position: relative;
-        height: auto;
-    }
-
+    /* --- Sect Scroll 2 --- */
     .sect-scroll-2 .vid-sticky {
         position: static;
         height: 100%;
     }
 
-    /* ? videa-caption */
     .videa-caption {
         border-top: 1px solid #000;
     }
 
     .sect-scroll-2 .component {
-        padding: 10px 16px;
         position: static;
-
         display: flex;
         flex-direction: column;
         gap: 20px;
         align-items: center;
+        padding: 10px 16px;
     }
 
     .sect-scroll-2 .component-line {
         display: none;
     }
 
-    .component-desc {
-        width: 100%;
+    .sect-scroll-2 .component .wrap {
+        overflow: visible;
     }
 
     .sect-scroll-2 .component-title {
         display: block;
     }
 
-    .sect-scroll-2 .component .wrap {
-        overflow: visible;
-    }
-
-    .sect-scroll-2 .component-desc span {
-        line-height: 1.3;
+    .sect-scroll-2 .component-desc span,
+    .desc.wrap span {
         display: inline;
-        transform: translateY(0);
     }
 
     .component-desc {
@@ -689,20 +672,19 @@
         margin-bottom: 20px;
     }
 
+    .sect-scroll-2 .component-desc span {
+        line-height: 1.3;
+        transform: translateY(0);
+    }
+
     .desc.wrap {
         display: contents;
     }
-
-    .desc.wrap span {
-        display: inline;
-    }
-
 
     .sect-scroll-2 .badge-wrap {
         position: static;
         width: 100%;
         height: auto;
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -714,6 +696,7 @@
         opacity: 1;
     }
 
+    /* --- Impact Area 1 & 2 --- */
     .impact-area-1 .img-wrap {
         width: 100%;
         height: 100%;
@@ -738,18 +721,14 @@
         position: relative;
         border-bottom: none;
         height: auto;
-        /* border: 3px solid red; */
     }
 
     .impact-area-2 .left {
         width: 100%;
         height: 100%;
-        padding: 0 100px;
-
         display: flex;
         justify-content: center;
         align-items: center;
-
         padding: 40px 16px 20px;
     }
 
@@ -765,7 +744,7 @@
         display: none;
     }
 
-    /* impact-area-2 fin */
+    /* --- Sect Scroll 3 --- */
     .sect-scroll-3 {
         position: relative;
         height: auto;
@@ -782,20 +761,18 @@
         object-fit: cover;
     }
 
-    /* ? viedo */
     .sect-scroll-3 .component {
         position: relative;
     }
 
-    .sect-scroll-3 .video-caption1 {
-        right: 0;
-        padding: 20px 16px;
-        border-top: 1px solid #000;
-    }
-
+    .sect-scroll-3 .video-caption1,
     .sect-scroll-3 .video-caption2 {
         right: 0;
         padding: 20px 16px;
+    }
+
+    .sect-scroll-3 .video-caption1 {
+        border-top: 1px solid #000;
     }
 
     .sect-scroll-3 .component .wrap {
@@ -808,7 +785,7 @@
         display: inline;
     }
 
-    /* sect-scroll-3 fin */
+    /* --- Product Gallery --- */
     .product-gallery {
         position: relative;
         width: 100%;
@@ -820,14 +797,11 @@
         top: 0;
         width: 60%;
         height: 100vh;
-        text-align: center;
-
-
+        margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        margin: 0 auto;
+        text-align: center;
         z-index: 1;
         pointer-events: none;
     }
@@ -835,11 +809,8 @@
     .gallery-list {
         position: relative;
         z-index: 2;
-
-        border-bottom: none;
-        border-top: none;
-
         display: block;
+        border: none;
     }
 
     .gallery-item {
@@ -861,32 +832,34 @@
     .gallery-item img {
         width: 100%;
         max-width: 40vw;
-        object-fit: cover;
         aspect-ratio: 1 / 1;
-        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        object-fit: cover;
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .gallery-item.is-past img {
         transform: scale(0.8);
     }
 
-    /* product-gallery fin */
+    /* --- Product List --- */
     .product-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         column-gap: 1px;
         background-color: #000;
     }
-
 }
 
 @media (max-width: 768px) {
+
+    /* --- Intro --- */
     .svg-container {
-        height: auto;
-        flex-direction: column;
-        padding: 0 16px;
+        position: absolute;
         top: 40%;
+        height: auto;
+        padding: 0 16px;
+        flex-direction: column;
     }
 
     .intro-logo__svg {
@@ -897,6 +870,7 @@
         width: 14vw;
     }
 
+    /* --- Sect Scroll 1 --- */
     .col-left h2 {
         margin: 0;
         font-size: 9vw;
@@ -912,17 +886,18 @@
         font-size: 7vw;
     }
 
-    .sect-scroll-1 .contents-text-4 {
-        font-size: 10px;
-    }
-
     .sect-scroll-1 .wrap3 .contents-text-3:last-child {
         font-size: 7vw;
     }
 
+    .sect-scroll-1 .contents-text-4 {
+        font-size: 10px;
+    }
+
+    /* --- Sect Scroll 2 --- */
     .sect-scroll-2 .component-title {
-        font-weight: 600;
         font-size: 12px;
+        font-weight: 600;
     }
 
     .sect-scroll-2 .component-desc {
@@ -934,6 +909,7 @@
         width: 20%;
     }
 
+    /* --- Impact Area 1 & 2 --- */
     .impact-area1__title {
         font-size: 4.5vw;
         line-height: 1.4;
@@ -954,20 +930,21 @@
         line-height: 1;
     }
 
+    /* --- Sect Scroll 3 --- */
     .sect-scroll-3 .video-caption1,
     .sect-scroll-3 .video-caption2 {
         font-size: 12px;
         padding: 10px 16px;
     }
 
-    /* product-gallery" */
+    /* --- Product Gallery --- */
     .gallery-title {
         width: 90vw;
         padding: 0 16px;
         font-size: 10vw;
     }
 
-    /* cta-block */
+    /* --- CTA Block --- */
     .cta-block {
         flex-direction: column;
         border-bottom: 1px solid #000;
@@ -976,6 +953,15 @@
     .cta-left {
         border-bottom: 1px solid #000;
         padding: 40px 16px;
+    }
+
+    .cta-left .cta-title {
+        font-size: 5.5vw;
+        padding: 0;
+    }
+
+    .cta-right .cta-list {
+        padding: 20px 0 20px 16px;
     }
 
     .cta-right .cta-title {
@@ -987,22 +973,9 @@
         font-size: 12px;
     }
 
-    .cta-left .cta-title {
-        font-size: 5.5vw;
-        padding: 0;
-
-    }
-
-    .cta-right .cta-list {
-        padding: 20px 0 20px 16px;
-    }
-
-    /* product-lineup */
+    /* --- Product Lineup --- */
     .product-list {
-        display: grid;
         grid-template-columns: 1fr;
-        column-gap: 1px;
-        background-color: #000;
     }
 
     .product-price {

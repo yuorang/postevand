@@ -1,82 +1,85 @@
 @import "./reset.css";
 @import "./common.css";
 
-/* header 영역 */
+/* Header 영역 */
 #header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-
     display: flex;
     border-bottom: 1px solid #000;
     background-color: #fff;
     z-index: 10;
 }
 
+/* 모바일 요소 숨기기*/
 .m-menu-bag,
 .m-menu-btn,
 .mobile-menu {
     display: none;
 }
 
-header .site-logo {
+/* 로고 및 네비게이션 레이아웃 */
+.site-logo {
     flex: 3;
     padding: 15px 20px;
     border-right: 1px solid #000;
 }
 
-header .site-logo__svg {
+.site-logo__svg {
     height: 15px;
     display: block;
 }
 
-header .header-nav {
+.header-nav {
     flex: 6;
 }
 
-header .menu-list {
+/* 메뉴 리스트 공통 */
+.menu-list,
+.util-list {
     display: flex;
-    align-items: center;
-    gap: 20px;
-
-    padding: 15px 60px;
     height: 100%;
 }
 
-header .menu-item:not(:first-child) a {
-    margin-left: 30px;
+.menu-list {
+    align-items: center;
+    gap: 20px;
+    padding: 15px 60px;
 }
 
-header .menu-item a {
+.menu-item a {
     line-height: 1;
     font-size: 12px;
 }
 
-header .util-nav {
+.menu-item:not(:first-child) a {
+    margin-left: 30px;
+}
+
+/* 우측 유틸리티 */
+.util-nav {
     display: flex;
     justify-content: flex-end;
 }
 
-header .util-list {
-    display: flex;
+.util-list {
     justify-content: space-between;
-
-    height: 100%;
 }
 
-header .util-item:last-child .util-link {
-    border-left: 1px solid #000;
-}
-
-header .util-link {
+.util-link {
     font-size: 12px;
     height: 100%;
     padding: 15px 60px;
     border-left: 1px solid #000;
 }
 
-/* footer 영역 */
+.util-item:last-child .util-link {
+    border-left: 1px solid #000;
+}
+
+/* Footer 영역 */
 .footer-top {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -85,13 +88,20 @@ header .util-link {
     border-bottom: 1px solid #000;
 }
 
+/* 푸터 흰색 배경 공통 그룹화 */
+.footer-branding,
+.footer-spacer,
+.footer-nav,
+.footer-nav .nav-area {
+    background-color: #fff;
+}
+
+/* 브랜딩 섹션 */
 .footer-branding {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-
     padding: 20px;
-    background-color: #fff;
 }
 
 .footer-branding .text-area {
@@ -103,37 +113,30 @@ header .util-link {
     margin-bottom: 20px;
 }
 
+.footer-branding .branding-desc {
+    font-size: 14px;
+}
+
 .footer-branding .cert-area {
     display: flex;
     align-self: flex-end;
-}
-
-.footer-branding .branding-desc {
-    font-size: 14px;
 }
 
 .footer-branding .cert-area svg {
     height: 80px;
 }
 
-/* footer-branding fin */
-.footer-spacer {
-    background-color: #fff;
-}
-
-/* footer-spacer fin */
+/* 네비게이션 섹션 */
 .footer-nav {
     display: flex;
     gap: 20px;
     justify-content: space-between;
     align-items: flex-start;
-    background-color: #fff;
     padding: 20px;
 }
 
 .footer-nav .nav-area {
     flex: 1;
-    background-color: #fff;
 }
 
 .footer-nav .nav-title {
@@ -153,9 +156,7 @@ header .util-link {
     margin-bottom: 10px;
 }
 
-/* footer-nav fin */
-/* footer-top fin */
-
+/* 푸터 하단 애니메이션 */
 .footer-bootom {
     padding: 10px;
     overflow: hidden;
@@ -184,8 +185,9 @@ header .util-link {
     }
 }
 
-/* footer fin */
 @media (max-width: 1024px) {
+
+    /* 헤더 위치 및 외곽선 조정 */
     #header {
         top: 10px;
         left: 10px;
@@ -194,27 +196,27 @@ header .util-link {
         border: 1px solid #000;
     }
 
+    /* 불필요 요소 숨김 */
     .header-nav,
     .util-item:first-child,
-    .util-item:nth-child(2) {
+    .util-item:nth-child(2),
+    .footer-spacer {
         display: none;
     }
 
+    /* 로고 및 유틸리티 정렬 */
     .site-logo {
         flex: 1;
     }
 
-    .util-list {
+    .util-list,
+    .util-item {
         display: flex;
-        height: 100%;
         align-items: center;
+        height: 100%;
     }
 
     .util-item {
-        height: 100%;
-
-        display: flex;
-        align-items: center;
         padding: 0 20px;
     }
 
@@ -222,6 +224,7 @@ header .util-link {
         font-size: 12px;
     }
 
+    /* 모바일 메뉴 버튼 */
     .m-menu-btn {
         display: flex;
         border-left: 1px solid #000;
@@ -246,7 +249,7 @@ header .util-link {
         transition: 0.3s;
     }
 
-    /* 메뉴 open */
+    /* 모바일 전체 메뉴 팝업 */
     .mobile-menu {
         position: fixed;
         inset: 0;
@@ -262,6 +265,7 @@ header .util-link {
         height: 100%;
     }
 
+    /* 메뉴 상단 바 */
     .menu-top-bar {
         margin: 10px;
         display: flex;
@@ -282,19 +286,19 @@ header .util-link {
         height: 100%;
     }
 
+    /* 메뉴 가방 & 닫기 버튼 */
     .menu-bag,
     .btn-close {
-        padding: 0 20px;
-        border-left: 1px solid #000;
         display: flex;
         align-items: center;
-        background: none;
-        border-top: none;
-        border-bottom: none;
-        border-right: none;
+        padding: 0 20px;
         font-size: 12px;
+        background: none;
+        border: none;
+        border-left: 1px solid #000;
     }
 
+    /* 모바일 메인 리스트 */
     .m-main-list {
         display: flex;
         flex-direction: column;
@@ -314,6 +318,7 @@ header .util-link {
         font-weight: 400;
     }
 
+    /* 하단 컨택트 바 */
     .m-contact-bar {
         display: flex;
         height: 40px;
@@ -334,32 +339,30 @@ header .util-link {
         border-right: none;
     }
 
-    /* footer */
+    /* 푸터 반응형 */
     .footer-top {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .footer-spacer {
-        display: none;
-    }
-
-    .footer-nav .nav-title {
+    .footer-nav .nav-title,
+    .footer-nav .nav-list {
         font-size: 12px;
     }
 
     .footer-nav .nav-list {
-        font-size: 12px;
         font-weight: 400;
     }
-
 }
 
 @media (max-width: 768px) {
+
+    /* 푸터 레이아웃 전환 */
     .footer-top {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto;
     }
 
+    /* 푸터 브랜딩 섹션 */
     .footer-branding {
         border-bottom: 1px solid #000;
     }
@@ -378,20 +381,21 @@ header .util-link {
         align-self: flex-end;
     }
 
-    .footer-branding .branding-desc {
-        font-size: 12px;
-    }
-
     .footer-branding .cert-area svg {
         height: 60px;
     }
 
+    .footer-branding .branding-desc {
+        font-size: 12px;
+    }
+
+    /* 푸터 네비게이션 섹션 */
     .footer-nav {
         flex-direction: column;
     }
 
+    /* 네비게이션 타이틀 및 리스트 */
     .footer-nav .nav-title {
-        font-size: 12px;
         width: 100%;
         margin-bottom: 10px;
     }
@@ -400,9 +404,15 @@ header .util-link {
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
+    }
+
+    /* 네비게이션 텍스트 크기 통합 */
+    .footer-nav .nav-title,
+    .footer-nav .nav-list {
         font-size: 12px;
     }
 
+    /* 푸터 하단 애니메이션 텍스트 */
     .footer-bootom .scrolling-text {
         font-size: 35px;
     }
